@@ -89,13 +89,13 @@ songplay_table_create = ("""CREATE TABLE IF NOT EXISTS factsongplay (songplay_id
 
 staging_songs_copy = ("""COPY staging_songs \
 FROM 's3://udacity-dend/song-data' \
-credentials 'aws_iam_role=arn:aws:iam::965496792619:role/dwhRole' \
+credentials '' \
 compupdate off region 'us-west-2' \
 FORMAT AS JSON 'auto' TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL maxerror 50000; """)
 
 staging_events_copy = ("""COPY staging_events \
 FROM 's3://udacity-dend/log-data' \
-credentials 'aws_iam_role=arn:aws:iam::965496792619:role/dwhRole' \
+credentials '' \
 compupdate off region 'us-west-2' \
 FORMAT AS JSON 's3://udacity-dend/log_json_path.json' TRUNCATECOLUMNS BLANKSASNULL EMPTYASNULL maxerror 50000; """)
 
